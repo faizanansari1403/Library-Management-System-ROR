@@ -1,0 +1,46 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<center><h1>Book Hold Request</h1></center>
+
+<table class="table table-light table-striped  table-bordered border-dark">
+  <thead>
+    <tr>
+      <th>Student Name</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% if !@holdreqs.nil? %>
+    <% @holdreqs.each do |holdreq| %> 
+        <tr>
+        <td><%= Student.find(holdreq.student_id).name %></td>
+        <td><%= Book.find(holdreq.book_id).title %></td>
+        </tr>
+        <%end %>
+      <%end%>
+  </tbody>
+</table>
+
+<!-- <h1> Book Hold Request</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Student Name</th>
+      <th>Title</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% if !@holdreqs.nil? %>
+    <% @holdreqs.each do |holdreq| %>
+      <tr>
+        <td><%= Student.find(holdreq.student_id).name %></td>
+        <td><%= Book.find(holdreq.book_id).title %></td>
+      </tr>
+    <% end %>
+  <%end%>
+  </tbody>
+-->

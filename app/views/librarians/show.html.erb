@@ -1,0 +1,69 @@
+<center>
+<p id="notice"><%= notice %></p>
+  <div class="col-md-4">
+  <strong>Name:</strong>
+  <%= @librarian.name %>
+  </div>
+
+  <div class="col-md-4">
+  <strong>Email:</strong>
+  <%= @librarian.email %>
+  </div>
+
+  <div class="col-md-4">
+  <strong>Password:</strong>
+  <%= @librarian.password %>
+  </div>
+
+  <div class="col-md-4">
+  <strong>Library:</strong>
+  <%= @librarian.library %>
+  </div>
+
+  <div class="col-md-4">
+  <strong>Approved:</strong>
+  <%= @librarian.approved %>
+  </div>
+  <br/>
+
+<%= link_to 'Edit', edit_librarian_path(@librarian),class:"btn btn-warning" %> |
+<%= link_to 'Back', librarians_path,class:"btn btn-dark" %>
+<br/>
+</center>
+
+<style>
+  body{
+    background-color: #8593;
+  }
+</style>
+
+<!-- <p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @librarian.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @librarian.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @librarian.password %>
+</p>
+
+<p>
+  <strong>Library:</strong>
+  <%= @librarian.library %>
+</p>
+
+<p>
+  <strong>Approved:</strong>
+  <%= @librarian.approved %>
+</p>
+
+<%= link_to 'Edit', edit_librarian_path(@librarian) %> |
+<%= link_to 'Back', librarians_path %>
+-->

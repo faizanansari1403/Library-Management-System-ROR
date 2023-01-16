@@ -1,0 +1,111 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<center><h1>List Of Students who have Checked out Books</h1></center>
+
+<table class="table table-light table-striped  table-bordered border-dark">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Educational Level</th>
+      <th>University</th>
+      <th>Isbn</th>
+      <th>Title</th>
+      <th>Authors</th>
+      <th>Issue Date</th>
+      <th>Return Date</th>
+      <th>Language</th>
+      <th>Published</th>
+      <th>Edition</th>
+      <th>Subject</th>
+      <th>Summary</th>
+      <th>Category</th>
+      <th>Special Collection</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.each do |result| %>
+      <tr>
+        <td><%= result.name %></td>
+        <td><%= result.email %></td>
+        <td><%= result.education_level %></td>
+        <td><%= result.university %></td>
+        <td><%= result.isbn %></td>
+        <td><%= result.title %></td>
+        <td><%= result.authors %></td>
+        <td><%= result.issue_date %></td>
+        <td><%= result.return_date %></td>
+        <td><%= result.language %></td>
+        <td><%= result.published %></td>
+        <td><%= result.edition %></td>
+        <td><%= result.subject %></td>
+        <td><%= result.summary %></td>
+        <td><%= result.category %></td>
+        <td><% if result.special_collection == true %>
+			Yes
+			<% else %>
+			No
+			<% end %>
+		</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+
+<!-- <H1> List Of Students who have Checked out Books </H1>
+
+<table border='1'>
+  <thead>
+    <tr>
+	   <th>Name</th>
+      <th>Email</th>
+      <th>Educational Level</th>
+      <th>University</th>
+      <th>Isbn</th>
+      <th>Title</th>
+      <th>Authors</th>
+      <th>Issue Date</th>
+      <th>Return Date</th>
+      <th>Language</th>
+      <th>Published</th>
+      <th>Edition</th>
+      <th>Subject</th>
+      <th>Summary</th>
+      <th>Category</th>
+      <th>Special Collection</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.each do |result| %>
+      <tr>
+        <td><%= result.name %></td>
+        <td><%= result.email %></td>
+        <td><%= result.education_level %></td>
+        <td><%= result.university %></td>
+        <td><%= result.isbn %></td>
+        <td><%= result.title %></td>
+        <td><%= result.authors %></td>
+        <td><%= result.issue_date %></td>
+        <td><%= result.return_date %></td>
+        <td><%= result.language %></td>
+        <td><%= result.published %></td>
+        <td><%= result.edition %></td>
+        <td><%= result.subject %></td>
+        <td><%= result.summary %></td>
+        <td><%= result.category %></td>
+        <td><% if result.special_collection == true %>
+			Yes
+			<% else %>
+			No
+			<% end %>
+		</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+-->

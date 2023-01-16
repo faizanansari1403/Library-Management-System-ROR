@@ -1,0 +1,54 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<center><h1>Libraries</h1></center>
+
+<table class="table table-light table-striped  table-bordered border-dark">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>University</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @libraries.each do |library| %>
+        <tr>
+        <td><%= library.name %></td>
+        <td><%= library.university %></td>
+        <td><%= library.location %></td>
+        </tr>
+        <%end %>
+  </tbody>
+</table>
+<br>
+
+
+<!-- <p id="notice"><%= notice %></p>
+
+<h1>Libraries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>University</th>
+      <th>Location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @libraries.each do |library| %>
+      <tr>
+        <td><%= library.name %></td>
+        <td><%= library.university %></td>
+        <td><%= library.location %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+-->
+

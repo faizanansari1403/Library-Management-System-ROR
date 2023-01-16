@@ -1,0 +1,19 @@
+<center><h1>Editing Librarian</h1>
+
+<%= render 'form', librarian: @librarian %>
+
+<% if current_admin.nil? %>
+<td><button type="button" class="btn btn-dark">
+<%= link_to 'Show', @librarian %>
+</button></td>
+
+<td><button type="button" class="btn btn-dark">
+<%= link_to 'Back', librarians_path %>
+</button></td>
+
+<% else %>
+<td><button type="button" class="btn btn-dark">
+<%= link_to 'Back', show_librarians_path %>
+</button></td>
+<% end %>
+</center>

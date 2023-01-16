@@ -1,0 +1,28 @@
+<h1> Overdue Books and Fine</h1>
+<table class="table table-light table-striped  table-bordered border-dark">
+  <thead>
+    <tr>
+      <th>Student Name</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Edition</th>
+      <th>Category</th>
+      <th>Fine</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%if !@fines.nil?%>
+      <% @fines.each do |fine| %>
+        <tr>
+          
+          <td><%= Book.find(fine[:book_id]).title %></td>
+          <td><%= Book.find(fine[:book_id]).authors %></td>
+          <td><%= Book.find(fine[:book_id]).edition %></td>
+          <td><%= Book.find(fine[:book_id]).category %></td>
+          <th colspan="6"></th>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

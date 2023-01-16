@@ -1,0 +1,94 @@
+<section class="vh-100" style="background-color: #2779;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-9">
+        <p id="notice"><%= notice %></p>
+        <strong>Note:</strong> Updating your profile has logged you out.<br><br>
+        <p>
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body">
+
+            <p>
+              <strong>Email:</strong>
+              <%= @student.email %>
+            </p>
+
+            <p>
+              <strong>Name:</strong>
+              <%= @student.name %>
+            </p>
+
+            <p>
+              <strong>Password:</strong>
+              <%= @student.password %>
+            </p>
+
+            <p>
+              <strong>Education level:</strong>
+              <%= @student.education_level %>
+            </p>
+
+            <p>
+              <strong>University:</strong>
+              <%= @student.university %>
+            </p>
+
+            <p>
+              <strong>Max book allowed:</strong>
+              <%= @student.max_book_allowed %>
+            </p>
+
+            <% if current_admin.nil? %>
+              <%= link_to 'Edit', edit_student_path(@student),class:"btn btn-primary" %> |
+              <%= link_to 'Back', new_student_session_path,class:"btn btn-dark" %>
+            <% else %>
+              <%= link_to 'Back', show_students_path,class:"btn btn-dark" %>
+            <% end %>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# ===================================== %>
+<!-- <p id="notice"><%= notice %></p>
+
+<strong>Note:</strong> Updating your profile has logged you out.<br><br>
+<p>
+  <strong>Email:</strong>
+  <%= @student.email %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @student.name %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @student.password %>
+</p>
+
+<p>
+  <strong>Education level:</strong>
+  <%= @student.education_level %>
+</p>
+
+<p>
+  <strong>University:</strong>
+  <%= @student.university %>
+</p>
+
+<p>
+  <strong>Max book allowed:</strong>
+  <%= @student.max_book_allowed %>
+</p>
+
+
+<% if current_admin.nil? %>
+	<%= link_to 'Edit', edit_student_path(@student) %> |
+	<%= link_to 'Back', new_student_session_path %>
+<% else %>
+	<%= link_to 'Back', show_students_path %>
+<% end %>
+-->

@@ -1,0 +1,239 @@
+<section class="vh-100" style="background-color: #2779e2;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-9">
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body">
+
+            <%= form_with(model: book, local: true, :html => {multipart: true}) do |form| %>
+            <% if book.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+                <ul>
+                  <% book.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="row align-items-center">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Isbn</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <%= form.text_field :isbn,class:"form-control form-control-md", placeholder:"Isbn" %>
+              </div>
+            </div>
+
+            <div class="row align-items-center">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Title</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <%= form.text_field :title,class:"form-control form-control-md", placeholder:"Title" %>
+              </div>
+            </div>
+
+            <div class="row align-items-center">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Author</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <%= form.text_field :authors,class:"form-control form-control-md", placeholder:"Author" %>
+              </div>
+            </div>
+
+            <div class="row align-items-center">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Language</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <%= form.text_field :language,class:"form-control form-control-md", placeholder:"Language" %>
+              </div>
+            </div>
+
+            <div class="row align-items-center">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Published</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <%= form.text_field :published,class:"form-control form-control-md", placeholder:"Published" %>
+              </div>
+            </div>
+
+            <div class="row align-items-center">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Edition</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <%= form.text_field :edition,class:"form-control form-control-md", placeholder:"Edition" %>
+              </div>
+            </div>
+            
+            <div class="row align-items-center">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Cover Image</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <%= form.file_field :cover, class:"form-control form-control-md", id:"formFileLg", type:"file" %>
+              </div>
+            </div>
+
+            <div class="row align-items-center">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Subject</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <%= form.text_field :subject,class:"form-control form-control-md", placeholder:"Subject" %>
+              </div>
+            </div>
+
+            <div class="row align-items-center">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Summary</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <%= form.text_area :summary,class:"form-control form-control-md", placeholder:"Summary" %>
+              </div>
+            </div>
+
+            <div class="row align-items-center">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Category</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <%= form.text_field :category,class:"form-control form-control-md", placeholder:"Category" %>
+              </div>
+            </div>
+
+
+            <div class="row align-items-center">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Count</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <%= form.number_field :count,class:"form-control form-control-md", placeholder:"Count" %>
+              </div>
+            </div>
+
+            <div class="row align-items-center">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Library</h6>
+              </div>
+            <div class="col-md-9 pe-5">
+            <%= select("book", "library_id", Library.all.collect{|l| [l.name, l.id]},{}, { :class => 'form-select'})  %>
+            </div>
+
+            <div class="row align-items-center">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Special Collection</h6>
+              </div>
+            <div class="col-md-9 pe-5">
+              <%= form.check_box :special_collection %>
+            </div>
+            &nbsp;
+
+            <div class="actions">
+              <center><%= form.submit "Create Book",class:"btn btn-primary btn-md"%></center>
+            </div>
+            &nbsp;
+            <% if current_admin.nil? and current_librarian.nil? %>     
+              <%= link_to 'Back', books_path, class:"btn btn-secondary" %>
+            <% end %>
+            <% if !current_librarian.nil? %>
+            <%= link_to 'Back', librarian_book_view_path, class:"btn btn-secondary" %>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <%= form_with(model: book, local: true, :html => {multipart: true}) do |form| %>
+  <% if book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+        <% book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :isbn %>
+    <%= form.text_field :isbn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :authors %>
+    <%= form.text_field :authors %>
+  </div>
+
+  <div class="field">
+    <%= form.label :language %>
+    <%= form.text_field :language %>
+  </div>
+
+  <div class="field">
+    <%= form.label :published %>
+    <%= form.text_field :published %>
+  </div>
+
+  <div class="field">
+    <%= form.label :edition %>
+    <%= form.text_field :edition %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cover %>
+    <%= form.file_field :cover %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subject %>
+    <%= form.text_field :subject %>
+  </div>
+
+  <div class="field">
+    <%= form.label :summary %>
+    <%= form.text_area :summary %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.text_field :category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :special_collection %>
+    <%= form.check_box :special_collection %>
+  </div>
+
+  <%= form.label :library_id %>
+	<%= select("book", "library_id", Library.all.collect{|l| [l.name, l.id]})  %>
+	
+	<div class="field">
+    <%= form.label :count %>
+    <%= form.number_field :count %>
+  </div>
+	
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+-->
+

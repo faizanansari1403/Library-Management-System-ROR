@@ -1,0 +1,49 @@
+<center>
+<%= form_with(model: student, local: true) do |form| %>
+  <% if student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+        <% student.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-md-4">
+    <%= form.label :email,class:"form-label" %>
+    <%= form.text_field :email,class:"form-control" %>
+  </div>
+
+  <div class="col-md-4">
+    <%= form.label :name,class:"form-label" %>
+    <%= form.text_field :name,class:"form-control" %>
+  </div>
+
+  <div class="col-md-4">
+    <%= form.label :password,class:"form-label" %>
+    <%= form.password_field :password,class:"form-control" %>
+  </div>
+
+  <div class="col-md-4">
+    <%= form.label :education_level,class:"form-label" %>
+    <%= form.select :education_level, ['B.Sc', 'BCA', 'B.E', 'M.Sc', 'MCA', 'PHD'],{}, { :class => 'form-select'}%>
+  </div>
+  <div class="col-md-4">
+    <%= form.label :university,class:"form-label" %>
+    <%= form.select(:university, University::UNIVERSITY_TYPES ,{}, { :class => 'form-select'}) %>
+  </div>
+  <br/>
+  <div class="actions">
+    <%= form.submit "Create Student",class:"btn btn-primary"%>
+  </div>
+<% end %>
+</center>
+
+<style>
+  body{
+    background-color: #8FBC8F;
+  }
+</style>

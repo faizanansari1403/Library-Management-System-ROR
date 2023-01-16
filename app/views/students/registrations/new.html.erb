@@ -1,0 +1,116 @@
+
+<script type="text/javascript">
+  max_days_borrowed = 10;
+  document.getElementById('student_education_level').addEventListener('change',insert_val);
+  function insert_val() {
+      
+      var education_level = document.getElementById('student_education_level').value;
+    console.log(education_level);
+      if(education_level == 'B.Sc'){
+          max_days_borrowed = 10;
+      }
+      else if(education_level == 'BCA'){
+          max_days_borrowed = 20;
+      }
+      else if(education_level == 'B.E'){
+          max_days_borrowed = 30;
+      }
+      else if(education_level == 'M.Sc'){
+          max_days_borrowed = 40;
+      }
+      else if(education_level == 'MCA'){
+          max_days_borrowed = 50;
+      }
+      else if(education_level == 'PHD'){
+          max_days_borrowed = 60;
+      }
+    document.getElementById('student_max_book_allowed').value  =max_days_borrowed;
+    console.log(document.getElementById('student_max_book_allowed').value);
+   }
+
+</script>
+
+<%# User Registration/Sign Up... %>
+<%= render "devise/shared/error_messages", resource: resource %>
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start">
+  <style>
+    .cascading-right {
+      margin-right: -50px;
+    }
+
+    @media (max-width: 991.98px) {
+      .cascading-right {
+        margin-right: 0;
+      }
+    }
+  </style>
+
+  <!-- Jumbotron -->
+  <div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            ">
+          <div class="card-body p-5 shadow-5 text-center">
+            <h2 class="fw-bold mb-5">Sign up now</h2>
+
+              <%= form_for @student do |form| %>
+              
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <%= form.label :email,class:"form-label" %>
+                <%= form.text_field :email,class:"form-control",placeholder:"Email" %>
+              </div>
+
+              <!-- Name -->
+              <div class="form-outline mb-4">
+                <%= form.label :name,class:"form-label" %>
+                <%= form.text_field :name,class:"form-control",placeholder:"Name" %>
+              </div>
+
+              <!-- Password input-->
+              <div class="form-outline mb-4">
+                <%= form.label :password,class:"form-label" %>
+                <%= form.password_field :password,class:"form-control",placeholder:"Password" %>
+              </div>
+
+              <!-- Education Level-->
+              <div class="form-outline mb-4">
+                <%= form.label :education_level%>
+                <%= form.select :education_level, ['B.Sc', 'BCA', 'B.E', 'M.Sc', 'MCA', 'PHD'],{}, { :class => 'form-select'} %>
+              </div>
+
+              <!-- University-->
+              <div class="form-outline mb-4">
+                <%= form.label :university %>
+                <%= form.select(:university, University::UNIVERSITY_TYPES,{}, { :class => 'form-select'}) %>
+              </div>
+
+               <!-- Max Book Allowed -->
+              <div class="field">
+                <%= form.hidden_field :max_book_allowed, :value =>'6' %>
+              </div>
+
+               <!-- Submit button -->
+              <div class="actions">
+                <%= form.submit "Sign up", class:"btn btn-primary btn-block mb-4" %>
+                </div>
+              <% end %>
+              
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" class="w-100 rounded-4 shadow-4"
+          alt="" />
+      </div>
+    </div>
+  </div>
+  <!-- Jumbotron -->
+</section>
+<!-- Section: Design Block -->
+

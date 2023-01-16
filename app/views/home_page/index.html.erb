@@ -1,0 +1,70 @@
+
+    <nav class="navbar" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">LibraryManagementSystem</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+
+    <% if student_signed_in?%>
+    <%= link_to "Logout", destroy_student_session_path, method: :delete, :class => 'navbar-link'%>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to 'Back', students_path, :class => 'navbar-link'%>
+    <% else %>
+    <%= link_to 'Student Login', new_student_session_path %>
+    
+    <%end%>
+    &nbsp;&nbsp; &nbsp;&nbsp;
+    <% if librarian_signed_in?%>
+    <%= link_to "Logout", destroy_librarian_session_path, method: :delete, :class => 'navbar-link'%>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to 'Back', librarians_path, :class => 'navbar-link' %>
+    <% else %>
+    <%= link_to 'Librarian Login', new_librarian_session_path %>
+    
+    <%end%>
+    &nbsp;&nbsp; &nbsp;&nbsp;
+    <% if admin_signed_in?%>
+    <%= link_to "Logout", destroy_librarian_session_path, method: :delete, :class => 'navbar-link'%>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to 'Back', admins_path, :class => 'navbar-link' %>
+    <% else %>
+    <%= link_to 'Admin Login', new_admin_session_path %>
+
+    <%end%> 
+
+    </div>
+  </div>
+</nav>
+</nav>
+<H1><center>Welcome to Library</center></H1>
+
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="2000">
+      <img src="/assets/LibHd1.webp" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="/assets/LibHd2.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="/assets/LibHd3.webp" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="/assets/12.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+

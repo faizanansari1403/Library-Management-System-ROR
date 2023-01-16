@@ -1,0 +1,7 @@
+<center><h1>New Student</h1></center>
+
+<%= render 'form', student: @student %>
+
+<% if current_admin.nil? %>
+<%= link_to 'Back', students_path %>
+<% end %>

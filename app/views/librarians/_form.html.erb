@@ -1,0 +1,48 @@
+<center>
+  <%= form_with(model: librarian, local: true) do |form| %>
+  <% if librarian.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(librarian.errors.count, "error") %> prohibited this librarian from being saved:</h2>
+
+      <ul>
+        <% librarian.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="col-md-4">
+    <%= form.label :name,class:"form-label" %>
+    <%= form.text_field :name,class:"form-control" %>
+  </div>
+  <div class="col-md-4">
+    <%= form.label :email,class:"form-label" %>
+    <%= form.text_field :email,class:"form-control" %>
+  </div>
+  <div class="col-md-4">
+    <%= form.label :password,class:"form-label" %>
+    <%= form.password_field :password,class:"form-control" %>
+  </div>
+  <div class="col-md-4">
+    <%= form.label :library,class:"form-label" %>
+    <%= select("librarian", "library", Library.all.collect{ |c| [ c.name] },{}, { :class => 'form-select'})%>
+  </div>
+    <% if current_librarian.nil? %>
+	  <div class="col-md-4">
+		<%= form.label :approved,class:"form-label" %>
+		<%= form.select :approved, ['Yes', 'No'],{}, { :class => 'form-select'}%>
+	  </div>
+  <% end %>
+  <br/>
+    <div class="actions">
+    <%= form.submit class:"btn btn-primary"%>
+  </div>
+<% end %>
+<br/>
+</center>
+
+<style>
+  body{
+    background-color: skyblue;
+  }
+</style>

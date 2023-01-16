@@ -1,0 +1,49 @@
+<center>
+<p id="notice"><%= notice %></p>
+  <div class="col-md-4">
+    <strong>Name:</strong>
+    <%= @admin.name %>
+
+  </div>
+  <div class="col-md-4">
+  <strong>Email:</strong>
+  <%= @admin.email %>
+  </div>
+  <div class="col-md-4">
+  <strong>Password:</strong>
+  <%= @admin.password %>
+  <br/>
+  <br/>
+
+  <%= link_to 'Edit', edit_admin_path(@admin),class:"btn btn-warning" %> |
+  <%= link_to 'Back', admins_path,class:"btn btn-dark" %>
+<br/>
+</center>
+
+<style>
+  body{
+    background-color: #8593;
+  }
+</style>
+
+<%# ================================ %>
+<!-- <p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @admin.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @admin.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @admin.password %>
+</p>
+
+<%= link_to 'Edit', edit_admin_path(@admin) %> |
+<%= link_to 'Back', admins_path %>
+-->

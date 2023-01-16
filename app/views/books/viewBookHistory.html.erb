@@ -1,0 +1,24 @@
+<center><h1> Book History</h1></center>
+<table class="table table-light table-striped  table-bordered border-dark">
+  <thead>
+    <tr>
+      <th>Student Name</th>
+      <th>Title</th>
+      <th>Issue Date</th>
+      <th>Return Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% if !@checkouts.nil? %>
+    <% @checkouts.each do |checkout| %>
+      <tr>
+        <td><%= Student.find(checkout.student_id).name %></td>
+        <td><%= Book.find(checkout.book_id).title %></td>
+        <td><%= checkout.issue_date %></td>
+        <td><%= checkout.return_date %></td>
+      </tr>
+    <% end %>
+  <%end%>
+  </tbody>
+  </table>

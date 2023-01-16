@@ -1,0 +1,7 @@
+<center><h1>New Librarian</h1></center>
+
+<%= render 'form', librarian: @librarian %>
+
+<% if current_admin.nil? %>
+	<%= link_to 'Back', librarians_path %>
+<% end %>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="admin.scss">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <title>Admin Dashboard</title>
+    
+</head>
+<body>
+    <header class="header">
+      
+
+      <div class="logout">
+        <%= link_to "Logout" ,destroy_librarian_session_path, method: :delete, :class => 'navbar-link btn btn-primary'%>
+      </div>
+
+    </header>
+    
+    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"> 
+      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"/>
+        <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z"/>
+        <path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"/>
+      </svg>
+    </a>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Library Management System</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+          <aside>
+      <ul class="ab">
+        <li>
+            <tr><td><%= link_to 'Edit Profile', edit_admin_path(current_admin) %></td></tr>
+        </li>
+            
+        <li>
+            <tr><td><%= link_to 'Add Librarian', new_librarian_path %></td></tr>
+        </li>
+
+        <li>
+            <tr><td><%= link_to 'View Librarians', show_librarians_path %></td></tr>
+        </li>
+
+        <li>
+            <tr><td><%= link_to 'Add Library', new_library_path %></tr>
+        </li>
+
+        <li>
+            <tr><td><%= link_to 'View Libraries', show_libraries_path %></td></tr>
+        </li>
+
+        <li>
+            <tr><td><%= link_to 'Add Student', new_student_path %></td></tr>
+        </li>
+
+        <li>
+            <tr><td><%= link_to 'View Students', show_students_path %></td></tr> 
+        </li>
+
+        <li>
+            <tr><td><%= link_to 'List of Students who have Checked Out Books', list_checkedoutBooksAndStudentsAdmin_path %></td></tr>
+        </li>
+
+        <li>
+            <tr><td><%= link_to 'View Students with Overdue Fine', getOverdueBooks_path %></tr>
+        </li>
+
+        <li>
+            <tr><td><%= link_to 'Add Book', add_books_path %></td></tr>
+        </li>
+
+        <li>
+            <tr><td><%= link_to 'View Books', show_books_path %></tr>
+        </li>
+
+        <li>
+            <tr><td><%= link_to 'View Checked Out Books', list_checkedoutBooks_path %></tr>
+        </li>
+
+        <li>
+            <tr><td><%= link_to 'View Book Hold Request', viewHoldRequestForAdmin_path %></tr>
+        </li>
+      </ul>
+    </aside>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="content">
+      <center><h1><b>Admin Dashboard</b></h1></center>
+    </div>
+        <style>
+      body {
+        background-image: url('/assets/Library1.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        height: 50vh;
+      
+      }
+       </style>
+        <%# <img src="/assets/Library1.jpg" class="img-fluid" width="100%" > %>
+
+</body>
+</html>
+
+
+<%# ============================================ %>
+
+<!-- <p id="notice"><%= notice %></p>
+
+<h1>Admin Panel</h1>
+Name: <%= current_admin.name %><br>
+Email: <%=  current_admin.email %><br>
+<br>
+<br>
+<table>
+  <th><strong>Admin Rights</strong></th>
+
+  <tr><td><%= link_to 'Edit Profile', edit_admin_path(current_admin) %></td></tr>
+  <tr><td></td><tr>
+  <tr><td></td><tr>
+  <tr><td><strong>Librarians</strong></td><tr>
+  <tr><td><%= link_to 'Add Librarian', new_librarian_path %></td></tr>
+  <tr><td><%= link_to 'View Librarians (Details/Edit/Delete/Approve)', show_librarians_path %></td></tr>
+  <tr><td></td><tr>
+  <tr><td></td><tr>
+  <tr><td><strong>Libraries</strong></td><tr>
+  <tr><td><%= link_to 'Add Library', new_library_path %></tr>
+  <tr><td><%= link_to 'View Libraries (Details/Edit/Delete)', show_libraries_path %></td></tr>
+  <tr><td></td><tr>
+  <tr><td></td><tr>
+  <tr><td><strong>Students</strong></td><tr>
+  <tr><td><%= link_to 'Add Student', new_student_path %></td></tr>
+  <tr><td><%= link_to 'View Students (Details/Edit)', show_students_path %></td></tr>  
+  <tr><td><%= link_to 'List of Students who have Checked Out Books', list_checkedoutBooksAndStudentsAdmin_path %></td></tr>  
+  <tr><td><%= link_to 'View Students with Overdue Fine', getOverdueBooks_path %></tr>
+  <tr><td></td><tr>
+  <tr><td></td><tr>
+  <tr><td><strong>Books</strong></td><tr>
+  <tr><td><%= link_to 'Add Book', add_books_path %></td></tr>
+  <tr><td><%= link_to 'View Books (Details/Borrowing History/Edit/Delete)', show_books_path %></tr>
+  <tr><td><%= link_to 'View Checked Out Books', list_checkedoutBooks_path %></tr>  
+  <tr><td><%= link_to 'View Book Hold Request', viewHoldRequestForAdmin_path %></tr>
+    
+</table> -->
+
