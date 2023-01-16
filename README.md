@@ -1,5 +1,3 @@
-# Library-Management-System-ROR
-
 # Library_Management_System-Ruby-On-Rails
 
 # Work Flows:
